@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "csdn",
+	"description": "csdn",
+	"version": "1.0",
+	"browser_action": {
+		"default_icon": "images/icon16.png",
+		"default_title": "csdn"
+	},
+	"icons": {
+		"16": "images/icon16.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	},
+	"content_scripts": [
+		{
+			"js": ["./js/jquery.js", "./js/index.js"],
+			"matches": ["https://*.csdn.net/*"],
+			"run_at": "document_start"
+		},
+		{
+			"js": ["./js/jquery.js", "./js/index.js"],
+			"matches": ["https://*.csdn.net/*"],
+			"run_at": "document_end"  // 因为csdn的时候 页面快要加载完成的时候 有些广告才会出来
+		},
+		{
+			"js": ["./js/jquery.js", "./js/index.js"],
+			"matches": ["https://*.csdn.net/*"],
+			"run_at": "document_idle"  // 因为csdn的时候 页面快要加载完成的时候 有些广告才会出来
+		}
+	],
+	"permissions": [
+		"https://*.csdn.net/*"
+	]
+
+}
